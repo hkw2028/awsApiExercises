@@ -32,12 +32,11 @@ import com.amazonaws.services.ec2.model.LaunchSpecification;
 import com.amazonaws.services.ec2.model.RequestSpotInstancesRequest;
 import com.amazonaws.services.ec2.model.RequestSpotInstancesResult;
 import com.amazonaws.services.ec2.model.SpotInstanceRequest;
+import com.amazonaws.services.ec2.model.Subnet;
 import com.amazonaws.services.ec2.model.TerminateInstancesRequest;
-import com.amazonaws.services.ec2.model.Vpc;
-import com.amazonaws.services.route53.model.VPC;
 
 public class Requests {
-    private AmazonEC2         ec2;
+	private AmazonEC2         ec2;
     private ArrayList<String> instanceIds;
     private ArrayList<String> spotInstanceRequestIds;
 
@@ -80,6 +79,7 @@ public class Requests {
         ec2 = new AmazonEC2Client(credentials);
         Region tokyoRegion = Region.getRegion(Regions.AP_NORTHEAST_1);
         ec2.setRegion(tokyoRegion);
+        ec2.setEndpoint("ec2.ap-northeast-1.amazonaws.com");
     }
 
     /**
