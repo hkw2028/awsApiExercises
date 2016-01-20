@@ -33,6 +33,8 @@ import com.amazonaws.services.ec2.model.RequestSpotInstancesRequest;
 import com.amazonaws.services.ec2.model.RequestSpotInstancesResult;
 import com.amazonaws.services.ec2.model.SpotInstanceRequest;
 import com.amazonaws.services.ec2.model.TerminateInstancesRequest;
+import com.amazonaws.services.ec2.model.Vpc;
+import com.amazonaws.services.route53.model.VPC;
 
 public class Requests {
     private AmazonEC2         ec2;
@@ -76,8 +78,8 @@ public class Requests {
         }
 
         ec2 = new AmazonEC2Client(credentials);
-        Region usWest2 = Region.getRegion(Regions.US_WEST_2);
-        ec2.setRegion(usWest2);
+        Region tokyoRegion = Region.getRegion(Regions.AP_NORTHEAST_1);
+        ec2.setRegion(tokyoRegion);
     }
 
     /**
